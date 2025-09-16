@@ -2,6 +2,8 @@
 
 A beautiful, web-based tool for creating, editing, and organizing markdown notes with real-time preview.
 
+![mdlib Screenshot](screenshot.png)
+
 ## Features
 
 - 📝 Browse and edit markdown files in a directory
