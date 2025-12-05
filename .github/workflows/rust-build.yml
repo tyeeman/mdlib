@@ -1,0 +1,26 @@
+name: Build Rust Windows Executable
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Rust toolchain
+      uses: dtolnay/rust-toolchain@stable
+      with:
+        toolchain: stable
+        # No 'target' needed here as 'windows-latest' runner builds natively for Windows
+
+    - name: Build release executable
+      run: cargo build --release
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: my-rust-app-windows-exe
+        path: target/release/mdlib.exe # Replace 'your_app_name.exe' with your actual executable name
